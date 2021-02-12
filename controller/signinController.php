@@ -34,7 +34,7 @@ class SignInController
               $sessionUser = $user->user($email);
               $_SESSION['user'] = $sessionUser;
 
-              header('Location: ?action=');
+              header('Location: ?action=index');
           }
           else {
               $_SESSION['error'] = 'Mauvais mot de passe.';
@@ -43,12 +43,10 @@ class SignInController
 
   }
   else {
-      // header('Location: ?action=home');
+      //Si accès au formulaire de connexion :
+    $view = new View('signin');
+    $view->generate(array('error'));
   }
-
-  //Si accès au formulaire de connexion :
-  $view = new View('signin');
-  $view->generate(array('error'));
 
 }
 
