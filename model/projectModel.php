@@ -12,6 +12,19 @@ class ProjectModel
     $request->closeCursor();
   }
 
+  public function newProject($titre, $descrea, $img, $contexte, $choix){
+    $request = App\SPDO::getInstance()->prepare("INSERT INTO `project` VALUES (:titre, :descrea, :img, :contexte, :choix)");
+    $arrayValue = [
+      ':titre'=>$titre,
+      ':descrea'=>$descrea,
+      ':img'=>$img,
+      ':contexte'=>$contexte,
+      ':choix'=>$choix
+    ];
+    $request->execute($arrayValue);
+    $request->closeCursor();
+  }
+
   public function viewallProjects(){
     $request = App\SPDO::getInstance()->prepare("SELECT * FROM `project`");
     $request->execute();
@@ -22,6 +35,15 @@ class ProjectModel
 
   public function updateProject($id, $titre, $descrea, $img, $contexte, $choix){
     $request = App\SPDO::getInstance()->prepare("UPDATE `titre`, `descrea`, `img`, `contexte`, `choix` FROM `project` WHERE `id`==:id"):
+    $arrayValue = [
+      ':id'=>$id
+    ];
+    $request->execute($arrayValue);
+    $request->closeCursor();
+  }
+
+  public function deleteProject($id){
+    $request = App\SPDO::getInstance()->prepare("DELETE FROM `project` WHERE `id`==:id"):
     $arrayValue = [
       ':id'=>$id
     ];

@@ -22,6 +22,17 @@ class userModel
       $data = $request->fetch();
       return $data;
     }
+
+    public function emailExist($email){
+      $request = App\SPDO::getInstance()->prepare("SELECT `email` FROM `user` WHERE `email`=:email");
+      $arrayValue = [
+        ':email'=>$email
+      ];
+      $request->execute($arrayValue);
+      $nb_presence = $request->fetch();
+      return $nb_presence;
+    }
+
 }
 
 

@@ -8,12 +8,12 @@ class Router{
 
   public function __construct()
   {
-    $this->deleteprojectController= new DeleteprojectController;
-    $this->newprojectController= new NewprojectController;
-    $this->updateprojectController= new UpdateprojectController;
-    $this->viewprojectController= new ViewprojectController;
-    $this->signinController= new SigninController;
-    $this->logoutController= new LogoutController;
+    $this->deleteprojectController= new App\DeleteprojectController;
+    $this->newprojectController= new App\NewprojectController;
+    $this->updateprojectController= new App\UpdateprojectController;
+    $this->viewprojectController= new App\ViewprojectController;
+    $this->signinController= new App\SigninController;
+    $this->logoutController= new App\LogoutController;
   }
 
   public function routerRequest()
@@ -29,10 +29,10 @@ class Router{
           if($_GET['action']=='updateproject'){
               $this->updateprojectController->updateProject();
           }
-          if($_GET['action']=='listScrap'){
+          if($_GET['action']=='viewprojects'){
               $this->viewprojectController->listScrap();
           }
-          if($_GET['action']=='historical'){
+          if($_GET['action']=='index'){
               $this->registrationController->historical();
           }
           if($_GET['action']=='disconnect'){
@@ -42,7 +42,7 @@ class Router{
       else if(isset($_GET['action'])) // et si y'a qqch dans url et rien dans session
       {
 
-          if($_GET['action']=='signIn'){
+          if($_GET['action']=='signin'){
               $this->signinController->signIn();
           }
           if($_GET['action']=='signOn'){
