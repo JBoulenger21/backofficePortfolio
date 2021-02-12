@@ -6,9 +6,12 @@ namespace App;
 
 class DeleteprojectController
 {
-  public function deleteProject($id){
-    
+  public function deleteProject(){
+    if(!empty($_POST['id'])){
+      deleteProject();
+    }
   }
+
 }
 
  ?>

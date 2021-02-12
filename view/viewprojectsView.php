@@ -8,7 +8,7 @@ require "vendor/autoload.php";
 
 <?php
 
-$projects = new Mdl\ProjectModel;
-$projects->viewallProjects();
+// $projects = new Mdl\ProjectModel;
+// $projects->viewallProjects();
 
 ?>

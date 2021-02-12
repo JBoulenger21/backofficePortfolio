@@ -8,6 +8,7 @@ class Router{
 
   public function __construct()
   {
+    $this->indexController= new App\IndexController;
     $this->deleteprojectController= new App\DeleteprojectController;
     $this->newprojectController= new App\NewprojectController;
     $this->updateprojectController= new App\UpdateprojectController;
@@ -33,7 +34,7 @@ class Router{
               $this->viewprojectController->listScrap();
           }
           if($_GET['action']=='index'){
-              $this->registrationController->historical();
+              $this->indexController->indexview();
           }
           if($_GET['action']=='disconnect'){
               $this->logoutController->disconnect();
@@ -45,39 +46,32 @@ class Router{
           if($_GET['action']=='signin'){
               $this->signinController->signIn();
           }
-          if($_GET['action']=='signOn'){
-              $this->signOnController->signOn();
+          if($_GET['action']=='index'){
+              $this->indexController->indexview();
           }
-          if($_GET['action']=='home'){
-              $this->homeController->home();
+          if($_GET['action']=='disconnect'){
+              $this->indexController->indexview();
           }
-
           // ramène à la page home si on essaye de rentrer le nom de la page dans l'url en étant pas connecté
-          if($_GET['action']=='dashboard'){
-              $this->homeController->home();
+          if($_GET['action']=='newproject'){
+              $this->indexController->indexview();
           }
-          if($_GET['action']=='account'){
-              $this->homeController->home();
+          if($_GET['action']=='deleteproject'){
+              $this->indexController->indexview();
           }
-          if($_GET['action']=='newScrap'){
-              $this->homeController->home();
+          if($_GET['action']=='updateproject'){
+              $this->indexController->indexview();
           }
-          if($_GET['action']=='listScrap'){
-              $this->homeController->home();
+          if($_GET['action']=='viewprojects'){
+              $this->indexController->indexview();
           }
           if($_GET['action']=='historical'){
-              $this->homeController->home();
+              $this->indexController->indexview();
           }
 
       } else // si y'a pas de get action
       {
-
-          if(!empty($_SESSION['user'])) // si la personne est connecté, on est sur le dashboard
-          {
-              $this->dashboardController->dashboard();
-          } else { // si la personne est déconnecté, renvoie à home
-              $this->homeController->home();
-          }
+              $this->indexController->indexview();
 
       }
   }
