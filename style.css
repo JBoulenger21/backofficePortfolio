@@ -1,0 +1,83 @@
+.navback li:not(:first-child) {
+  display: flex;
+  justify-content: end;
+}
+
+.sidebar {
+  height: 100vh;
+  background-color: #516b79;
+  height: 100%;
+  width: 80px;
+}
+
+.sidebarleft {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100%;
+  width: 80px;
+  left: 0;
+  top: 0;
+}
+
+.sidebar div {
+  flex: 1;
+}
+
+.item {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.sidebarleft .item {
+  transform: rotate(-90deg) translate(-100%, 0%);
+  left: 0;
+  color: white;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding: 0;
+}
+
+#footernav {
+  display: flex;
+}
+#footernav nav {
+  margin: auto;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+#footernav .burger {
+  display: none;
+}
+
+.separator {
+  color: #37474F;
+  height: 3px;
+  width: 80%;
+  margin: auto;
+  padding: 2px;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.btnfooter {
+  background-color: #8dabbe;
+  font-family: "Poppins";
+  color: white;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+.btnfooter:hover {
+  background-color: #37474F;
+  color: white;
+}
+
+/*# sourceMappingURL=style.css.map */

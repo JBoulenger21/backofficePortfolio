@@ -1,0 +1,11 @@
+{
+  "name": "portfoliobackoffice",
+  "version": "1.0.0",
+  "description": "Back office de portfolio",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./assets/sass/main.scss:./style.css"
+  },
+  "author": "Julie Boulenger",
+  "license": "ISC"
+}
