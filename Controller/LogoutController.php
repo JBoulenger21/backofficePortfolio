@@ -1,21 +1,18 @@
 <?php
 
-require "vendor/autoload.php";
-require "View/View.php";
-
 namespace App\Controller;
+
+include "autoload.php";
 
 class LogoutController
 {
   public function disconnect(){
     if(!empty($_SESSION['user'])){
       unset($_SESSION['user']);
-      $view = new View('indexView');
-      $view->generate(array());
+      header('Location: ?action=index');
     } else {
       $_SESSION['error'] = "Vous êtes déjà déconnecté.";
-      $view = new View('indexView');
-      $view->generate(array());
+      header('Location: ?action=index');
     }
   }
 }

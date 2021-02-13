@@ -1,21 +1,20 @@
 <?php
 
-  require "vendor/autoload.php";
-  require "View/View.php";
+namespace App\Controller;
 
-  namespace App\Controller;
+  include "autoload.php";
 
   class ViewProjectController
   {
     public function viewallProjects(){
 
-      $projects = new App\Model\ProjectModel;
+      $projects = new \App\Model\ProjectModel;
 
       $data = $projects-> viewallProjects();
 
       $_SESSION['projects'] = $data;
 
-      $view = new App\View\View('viewprojectsView');
+      $view = new \App\View\ViewTemplate('viewprojectsView');
       $view->generate(array('error'));
 
     }

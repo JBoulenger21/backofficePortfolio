@@ -1,10 +1,10 @@
 <?php
 
-require "vendor/autoload.php";
+namespace App\Controller;
 
-namespace App;
+include "autoload.php";
 
-class SignInController
+class SigninController
 {
 
   public function signIn()
@@ -12,11 +12,11 @@ class SignInController
 
     // Si connexion :
     if(isset($_POST['email']) && !empty($_POST['email']) &&isset($_POST['password']) && !empty($_POST['password'])){
-      $check = new App\CheckController();
+      $check = new \App\Controller\CheckController();
       $email = $check->check($_POST['email']);
       $password = $check->check($_POST['password']);
 
-      $user = new Mdl\UserModel()
+      $user = new \App\Model\UserModel();
 
       $check = $user->emailExist($email); // récupérer tous les emails pour voir si l'email existe
 
@@ -44,11 +44,9 @@ class SignInController
   }
   else {
       //Si accès au formulaire de connexion :
-    $view = new View('signin');
+    $view = new App\View\ViewTemplate('signin');
     $view->generate(array('error'));
+    }
   }
-
 }
-
-
 ?>

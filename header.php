@@ -14,7 +14,22 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="sidebar sidebarleft">
+    <div>
+      <div class="item">
+          <a href="?action=index">Accueil</a>
+      </div>
+    </div>
+    <div>
+      <div class="item">
+          <a href="?action=viewprojects">Projet</a>
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+
+    <h1>Dashboard</h1>
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 navback">
@@ -33,4 +48,4 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->

@@ -2,14 +2,14 @@
 
 namespace App\View;
 
-class View
+class ViewTemplate
 {
     private $file;
     private $title;
 
     public function __construct($name)
     {
-        $this->file='view/'.$name.'View.php';
+        $this->file='View/'.$name.'.php';
     }
 
     public function generate($data)
@@ -17,6 +17,7 @@ class View
         $content=$this->generateFile($this->file,$data);
         $view=$this->generateFile('template.php',array('title'=>$this->title,'content'=>$content));
         echo $view;
+
     }
 
     public function generateFile($file, $data)
@@ -26,11 +27,14 @@ class View
             extract($data);
             ob_start();
             require $file;
+            // var_dump($file);
+            // die();
             return ob_get_clean();
         }
         else
         {
-            throw new Exception($file . 'introuvable');
+          echo 'File non trouvé';
+            // throw new Exception($file . 'introuvable');
         }
     }
 }

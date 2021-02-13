@@ -1,8 +1,4 @@
-<?php
 
-require "vendor/autoload.php";
-
-?>
 
 <h1>Tous les projets</h1>
 

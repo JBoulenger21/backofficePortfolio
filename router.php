@@ -5,7 +5,7 @@
 //   die();
 // });
 
-require_once('vendor/autoload.php');
+include "autoload.php";
 
 class Router
 {
@@ -20,13 +20,13 @@ class Router
 
   public function __construct()
   {
-    $this->indexController = new App\Controller\IndexController;
-    $this->deleteprojectController = new App\Controller\DeleteprojectController;
-    $this->newprojectController = new App\Controller\NewprojectController;
-    $this->updateprojectController = new App\Controller\UpdateprojectController;
-    $this->viewprojectController = new App\Controller\ViewprojectController;
-    $this->signinController = new App\Controller\SigninController;
-    $this->logoutController = new App\Controller\LogoutController;
+    $this->indexController = new \App\Controller\IndexController;
+    $this->deleteprojectController = new \App\Controller\DeleteprojectController;
+    $this->newprojectController = new \App\Controller\NewprojectController;
+    $this->updateprojectController = new \App\Controller\UpdateprojectController;
+    $this->viewprojectController = new \App\Controller\ViewprojectController;
+    $this->signinController = new \App\Controller\SigninController;
+    $this->logoutController = new \App\Controller\LogoutController;
   }
 
   public function routerRequest()

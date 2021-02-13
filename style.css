@@ -44,6 +44,49 @@
   padding: 0;
 }
 
+h1 {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+  width: 80%;
+}
+.flex h1 {
+  margin: auto;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.menu {
+  height: 100vh;
+  display: flex;
+}
+.menu h1 {
+  margin: auto;
+}
+.menu .buttonProject {
+  margin: auto;
+  height: 5em;
+  background-color: #8dabbe;
+  font-family: "Poppins";
+  color: white;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+.menu .buttonProject:hover {
+  background-color: #37474F;
+  color: white;
+}
+
+.home {
+  display: flex;
+}
+.home h1 {
+  margin: auto;
+}
+
 #footernav {
   display: flex;
 }

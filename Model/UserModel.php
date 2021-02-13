@@ -1,13 +1,13 @@
 <?php
 
-require "vendor/autoload.php";
+namespace App\Model;
 
-namespace Mdl;
+include "autoload.php";
 
 class userModel
 {
     public function isTableExist(){
-      $request = App\SPDO::getInstance()->prepare("CREATE TABLE IF NOT EXIST `user` (`id` INT UNSIGNED NOT NULL AUTO_INCREMENT, `email` VARCHAR(255) NOT NULL, `password` VARCHAR(255) NOT NULL, PRIMARY KEY (`id`)) ENGINE = MyISAM;");
+      $request = \App\Controller\SPDO::getInstance()->prepare("CREATE TABLE IF NOT EXIST `user` (`id` INT UNSIGNED NOT NULL AUTO_INCREMENT, `email` VARCHAR(255) NOT NULL, `password` VARCHAR(255) NOT NULL, PRIMARY KEY (`id`)) ENGINE = MyISAM;");
       $request->execute();
       $request->closeCursor();
     }
@@ -16,7 +16,7 @@ class userModel
       $arrayValue = [
       ':email'=>$email
       ];
-      $request = App\SPDO::getInstance()->prepare("SELECT  `email`, `password` FROM `user` WHERE `email`=:email");
+      $request = \App\Controller\SPDO::getInstance()->prepare("SELECT  `email`, `password` FROM `user` WHERE `email`=:email");
       $request->execute($arrayValue);
       $request->closeCursor();
       $data = $request->fetch();
@@ -24,7 +24,7 @@ class userModel
     }
 
     public function emailExist($email){
-      $request = App\SPDO::getInstance()->prepare("SELECT `email` FROM `user` WHERE `email`=:email");
+      $request = \App\Controller\SPDO::getInstance()->prepare("SELECT `email` FROM `user` WHERE `email`=:email");
       $arrayValue = [
         ':email'=>$email
       ];
