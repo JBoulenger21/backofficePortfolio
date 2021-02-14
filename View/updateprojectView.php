@@ -1,6 +1,5 @@
 <?php
 
-require "vendor/autoload.php";
 
 
 
@@ -19,7 +18,10 @@ if (isset($_SESSION["project"])){
 
 <div class="updateproject">
   <h1>Modifier le projet</h1>
-  <form class="newprojectform" action="?action=updateproject" method="post">
+</div>
+<div class="formcontrol">
+  <form class="newprojectform" action="?action=updateproject" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="<?php $id ?>">
     <div class="form-floating mb-4">
       <label for="titreInput">Titre</label>
       <input id="titreInput" type="text" name="uptitre" class="form-control" value="<?php echo $titre; ?>"
@@ -34,12 +36,12 @@ if (isset($_SESSION["project"])){
     </div>
     <div class="form-floating mb-4">
       <label for="contexteProjet">Contexte</label>
-      <textarea id="contexteProjet" type="text" name="upcontexte" class="form-control" placeholder="<?php echo $contexte; ?>">
+      <textarea id="contexteProjet" type="text" name="upcontexte" class="form-control"><?php echo $contexte; ?></textarea>
     </div>
     <div class="form-floating mb-4">
       <label for="choixProjet">Choix et réalisation</label>
-      <textarea id="choix" type="text" name="upchoixProjet" class="form-control" placeholder="<?php echo $choix; ?>">
+      <textarea id="choix" type="text" name="upchoix" class="form-control"><?php echo $choix; ?></textarea>
     </div>
-    <button type="submit" class="btn btn-outline-primary">Mettre à jour le projet</button>
+    <button type="submit" class="btn btnfooter">Mettre à jour le projet</button>
   </form>
 </div>

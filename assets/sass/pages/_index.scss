@@ -1,33 +1,33 @@
 h1{
   text-align: center;
 }
-
-.flex{
-  display: flex;
-  width: 80%;
-  h1{
-    margin: auto;
-    flex-direction: row;
-    justify-content: center;
-  }
+body{
+  height: 100vh;
+  text-align: center;
+  justify-content: center;
 }
 .menu{
-  height: 100vh;
   display: flex;
+  padding: 2em;
   h1{
     margin: auto;
   }
-  .buttonProject{
-    margin: auto;
-    height: 5em;
-    background-color: $BackgroundLight;
-    font-family: 'Poppins';
+}
+.buttonProject{
+  margin: auto;
+  height: 5em;
+  background-color: $BackgroundLight;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  &:hover{
+    background-color: $BackgroundDark;
     color: white;
-    border: none;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-    &:hover{
-      background-color: $BackgroundDark;
+  }
+  a{
+    text-decoration: none;
+    h2{
+      font-family: 'Poppins';
       color: white;
     }
   }

@@ -5,12 +5,5 @@
             "name": "Jboulenger",
             "email": "boulenger.julie@gmail.com"
         }
-    ],
-    "autoload": {
-        "psr-4": {
-            "App\\Controller\\": "Controller/",
-            "App\\Model\\": "Model/",
-            "App\\View\\": "View/"
-        }
-    }
+    ]
 }

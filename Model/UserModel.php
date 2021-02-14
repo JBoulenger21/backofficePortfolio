@@ -1,36 +1,43 @@
 <?php
 
-namespace App\Model;
-
-include "autoload.php";
+require_once 'Controller/SPDO.php';
 
 class userModel
 {
     public function isTableExist(){
-      $request = \App\Controller\SPDO::getInstance()->prepare("CREATE TABLE IF NOT EXIST `user` (`id` INT UNSIGNED NOT NULL AUTO_INCREMENT, `email` VARCHAR(255) NOT NULL, `password` VARCHAR(255) NOT NULL, PRIMARY KEY (`id`)) ENGINE = MyISAM;");
+      $request = SPDO::getInstance()->prepare("CREATE TABLE IF NOT EXISTS `user` (`id` INT UNSIGNED NOT NULL AUTO_INCREMENT, `email` VARCHAR(255) NOT NULL, `password` VARCHAR(255) NOT NULL, PRIMARY KEY (`id`)) ENGINE = MyISAM;");
       $request->execute();
       $request->closeCursor();
     }
 
     public function signIn($email){
-      $arrayValue = [
-      ':email'=>$email
-      ];
-      $request = \App\Controller\SPDO::getInstance()->prepare("SELECT  `email`, `password` FROM `user` WHERE `email`=:email");
-      $request->execute($arrayValue);
-      $request->closeCursor();
-      $data = $request->fetch();
-      return $data;
-    }
-
-    public function emailExist($email){
-      $request = \App\Controller\SPDO::getInstance()->prepare("SELECT `email` FROM `user` WHERE `email`=:email");
+      $request = SPDO::getInstance()->prepare("SELECT * FROM `user` WHERE `email`=:email");
       $arrayValue = [
         ':email'=>$email
       ];
       $request->execute($arrayValue);
-      $nb_presence = $request->fetch();
+      $data = $request->fetchAll();
+      return $data;
+    }
+
+    public function emailExist($email){
+      $request = SPDO::getInstance()->prepare("SELECT `email` FROM `user` WHERE `email`=:email");
+      $arrayValue = [
+        ':email'=>$email
+      ];
+      $request->execute($arrayValue);
+      $nb_presence = $request->fetchAll();
       return $nb_presence;
+    }
+
+    public function newUser($email, $password){
+      $request = SPDO::getInstance()->prepare("INSERT INTO `user` SET `email`=:email, `password`=:password");
+      $arrayValue = [
+        ':email'=>$email,
+        ':password'=>$password
+      ];
+      $request->execute($arrayValue);
+      $request->closeCursor();
     }
 
 }

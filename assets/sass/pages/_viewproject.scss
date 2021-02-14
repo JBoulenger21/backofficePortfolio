@@ -1,0 +1,14 @@
+.pageprojet{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin-top: 2em;
+  padding-top: 2em;
+  border-top: 0.5em dashed $BackgroundLight;
+  margin-bottom: 2em;
+  img{
+    max-width: 80%;
+  }
+}

@@ -1,18 +1,16 @@
 <?php
 
-namespace App\Controller;
-
-include "autoload.php";
+require_once 'Controller/CheckController.php';
 
 
 class DeleteprojectController
 {
   public function deleteProject(){
     if(!empty($_POST['id'])){
-      $check = new \App\Controller\CheckController();
+      $check = new CheckController();
       $id = $check->check($_POST['id']);
 
-      $project = new \App\Model\ProjectModel;
+      $project = new ProjectModel;
 
       $projectDel = $project->deleteProject($id);
 

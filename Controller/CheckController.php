@@ -1,8 +1,5 @@
 <?php
 
-namespace App\Controller;
-
-include "autoload.php";
 
 class CheckController
 {

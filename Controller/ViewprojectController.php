@@ -1,21 +1,22 @@
 <?php
 
-namespace App\Controller;
-
-  include "autoload.php";
+require_once 'View/ViewTemplate.php';
+require_once 'Model/ProjectModel.php';
 
   class ViewProjectController
   {
     public function viewallProjects(){
 
-      $projects = new \App\Model\ProjectModel;
+      $projects = new ProjectModel;
 
       $data = $projects-> viewallProjects();
 
       $_SESSION['projects'] = $data;
 
-      $view = new \App\View\ViewTemplate('viewprojectsView');
+      $view = new ViewTemplate('viewprojects');
       $view->generate(array('error'));
+
+      unset($_SESSION['projects']);
 
     }
   }

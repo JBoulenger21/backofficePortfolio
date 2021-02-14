@@ -1,7 +1,5 @@
 <?php
 
-namespace App\Controller;
-
 class SPDO
 {
   private $PDOInstance = null;
@@ -9,7 +7,7 @@ class SPDO
 
   const DEFAULT_SQL_USER = 'root2';
   const DEFAULT_SQL_HOST = 'localhost';
-  const DEFAULT_SQL_PASS = 'mdproot';
+  const DEFAULT_SQL_PASS = 'rootmdp';
   const DEFAULT_SQL_DTB = 'backofficeportfolio';
 
   private function __construct(){
@@ -27,6 +25,15 @@ class SPDO
   public function prepare($query)
   {
     $ret = $this->PDOInstance->prepare($query);
+    if ($ret == false)
+    {
+      print_r($this->PDOInstance->errorInfo());
+    }
+    return $ret;
+  }
+  public function execute($query)
+  {
+    $ret = $this->PDOInstance->execute($query);
     if ($ret == false)
     {
       print_r($this->PDOInstance->errorInfo());

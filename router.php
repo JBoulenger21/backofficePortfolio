@@ -1,11 +1,13 @@
 <?php
 
-// spl_autoload_register(function($className){
-//   var_dump($className);
-//   die();
-// });
+require_once 'Controller/IndexController.php';
+require_once 'Controller/DeleteprojectController.php';
+require_once 'Controller/NewprojectController.php';
+require_once 'Controller/UpdateprojectController.php';
+require_once 'Controller/ViewprojectController.php';
+require_once 'Controller/SigninController.php';
+require_once 'Controller/LogoutController.php';
 
-include "autoload.php";
 
 class Router
 {
@@ -20,13 +22,13 @@ class Router
 
   public function __construct()
   {
-    $this->indexController = new \App\Controller\IndexController;
-    $this->deleteprojectController = new \App\Controller\DeleteprojectController;
-    $this->newprojectController = new \App\Controller\NewprojectController;
-    $this->updateprojectController = new \App\Controller\UpdateprojectController;
-    $this->viewprojectController = new \App\Controller\ViewprojectController;
-    $this->signinController = new \App\Controller\SigninController;
-    $this->logoutController = new \App\Controller\LogoutController;
+    $this->indexController = new IndexController;
+    $this->deleteprojectController = new DeleteprojectController;
+    $this->newprojectController = new NewprojectController;
+    $this->updateprojectController = new UpdateprojectController;
+    $this->viewprojectController = new ViewprojectController;
+    $this->signinController = new SigninController;
+    $this->logoutController = new LogoutController;
   }
 
   public function routerRequest()
@@ -58,7 +60,7 @@ class Router
         $this->signinController->signIn();
       }
       if ($_GET['action'] == 'index') {
-        $this->indexController->indexview();
+        $this->signinController->signIn();
       }
       if ($_GET['action'] == 'disconnect') {
         $this->indexController->indexview();
@@ -79,6 +81,6 @@ class Router
     } else // si y'a pas de get action
     {
       $this->indexController->indexview();
-    }
+    } 
   }
 }
