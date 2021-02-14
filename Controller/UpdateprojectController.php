@@ -9,16 +9,18 @@ require_once 'Model/ProjectModel.php';
 class UpdateprojectController
 {
   public function updateProject(){
+    var_dump($_POST);
     if(!empty($_POST['id']) && !empty($_POST['uptitre']) && !empty($_POST['updescrea']) && !empty($_POST['upcontexte']) && !empty($_POST['upchoix'])){
 
       $check = new CheckController;
+      $id = $check->check($_POST['id']);
       $titre = $check->check($_POST['uptitre']);
       $descrea = $check->check($_POST['updescrea']);
-      $image = '';
-      if(isset($_FILES['upimg'])){
-        $image = $_FILES['upimg']['name'];
+      $image = NULL;
+      if(isset($_FILES['upimage'])){
+        $image = $_FILES['upimage']['name'];
         $dir = "image/$image";
-        move_uploaded_file($_FILES['upimg']['tmp_name'],$dir);
+        move_uploaded_file($_FILES['upimage']['tmp_name'],$dir);
       }
 
       $contexte = $check->check($_POST['upcontexte']);
@@ -27,7 +29,7 @@ class UpdateprojectController
       $project = new ProjectModel;
       $project->updateProject($id, $titre, $descrea, $image, $contexte, $choix);
 
-      $view = new ViewTemplate('home');
+      $view = new ViewTemplate('viewprojects');
       $view->generate(array());
 
     } else if(!empty($_POST['id']) && !empty($_POST['titre']) && !empty($_POST['descrea']) && !empty($_POST['img']) && !empty($_POST['contexte']) && !empty($_POST['choix'])){

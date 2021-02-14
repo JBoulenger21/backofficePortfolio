@@ -11,7 +11,7 @@ class ProjectModel
   }
 
   public function newProject($titre, $descrea, $img, $contexte, $choix){
-    $request = SPDO::getInstance()->prepare("INSERT INTO `project` SET `titre`=:titre, `descrea`=:descrea, `img`=:img, `contexte`=:contexte, `choix`=:choix");
+    $request = SPDO::getInstance()->prepare("INSERT INTO `project` SET `titre`=:titre, `descra`=:descrea, `img`=:img, `contexte`=:contexte, `choix`=:choix");
     $arrayValue = [
       ':titre'=>$titre,
       ':descrea'=>$descrea,
@@ -19,42 +19,52 @@ class ProjectModel
       ':contexte'=>$contexte,
       ':choix'=>$choix
     ];
-    $request->execute($arrayValue);
+    SPDO::getInstance()->execute($request, $arrayValue);
     $request->closeCursor();
   }
 
   public function viewallProjects(){
     $request = SPDO::getInstance()->prepare("SELECT * FROM `project`");
-    $request->execute();
+    SPDO::getInstance()->execute($request);
     $data = $request->fetchAll();
     return $data;
   }
 
   public function updateProject($id, $titre, $descrea, $img, $contexte, $choix){
-    if($img = NULL){
-      $request = SPDO::getInstance()->prepare("UPDATE `titre`, `descrea`, `contexte`, `choix` FROM `project` WHERE `id`==:id");
+    if($img == NULL){
+      $request = SPDO::getInstance()->prepare("UPDATE `project` SET `titre`=:titre, `descra`=:descrea, `contexte`=:contexte, `choix`=:choix WHERE `id`=:id");
+
       $arrayValue = [
+        ':titre'=>$titre,
+        ':descrea'=>$descrea,
+        ':contexte'=>$contexte,
+        ':choix'=>$choix,
         ':id'=>$id
       ];
-      $request->execute($arrayValue);
-      $request->closeCursor();
     } else {
-      $request = SPDO::getInstance()->prepare("UPDATE `titre`, `descrea`, `img`, `contexte`, `choix` FROM `project` WHERE `id`==:id");
+      $request = SPDO::getInstance()->prepare("UPDATE `project` SET `titre`=:titre, `descra`=:descrea, `img`=:img, `contexte`=:contexte, `choix`=:choix WHERE `id`=:id");
+
       $arrayValue = [
+        ':titre'=>$titre,
+        ':descrea'=>$descrea,
+        ':img'=>$img,
+        ':contexte'=>$contexte,
+        ':choix'=>$choix,
         ':id'=>$id
       ];
-      $request->execute($arrayValue);
-      $request->closeCursor();
     }
 
+    SPDO::getInstance()->execute($request, $arrayValue);
+    // var_dump($request->execute($arrayValue));
+    // $request->closeCursor();
   }
 
   public function deleteProject($id){
-    $request = SPDO::getInstance()->prepare("DELETE FROM `project` WHERE `id`==:id");
+    $request = SPDO::getInstance()->prepare("DELETE FROM `project` WHERE `id`=:id");
     $arrayValue = [
       ':id'=>$id
     ];
-    $request->execute($arrayValue);
+    SPDO::getInstance()->execute($request, $arrayValue);
     $request->closeCursor();
   }
 }

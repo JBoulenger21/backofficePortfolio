@@ -21,7 +21,7 @@ if (isset($_SESSION["project"])){
 </div>
 <div class="formcontrol">
   <form class="newprojectform" action="?action=updateproject" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="id" value="<?php $id ?>">
+    <input type="hidden" name="id" value="<?php echo $id; ?>">
     <div class="form-floating mb-4">
       <label for="titreInput">Titre</label>
       <input id="titreInput" type="text" name="uptitre" class="form-control" value="<?php echo $titre; ?>"
@@ -31,7 +31,7 @@ if (isset($_SESSION["project"])){
       <input id="descrea" type="text" name="updescrea" class="form-control" value="<?php echo $descrea; ?>">
     </div>
     <div class="form-floating mb-4">
-      <label for="imageProjet">Password</label>
+      <label for="imageProjet">Image</label>
       <input id="imageProjet" type="file" name="upimage" class="form-control">
     </div>
     <div class="form-floating mb-4">

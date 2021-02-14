@@ -31,12 +31,12 @@ class SPDO
     }
     return $ret;
   }
-  public function execute($query)
+  public function execute($query, $array=NULL)
   {
-    $ret = $this->PDOInstance->execute($query);
+    $ret = $query->execute($array);
     if ($ret == false)
     {
-      print_r($this->PDOInstance->errorInfo());
+      var_dump($query->errorInfo());
     }
     return $ret;
   }
