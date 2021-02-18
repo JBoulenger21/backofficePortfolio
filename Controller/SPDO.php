@@ -27,7 +27,7 @@ class SPDO
     $ret = $this->PDOInstance->prepare($query);
     if ($ret == false)
     {
-      print_r($this->PDOInstance->errorInfo());
+      var_dump($this->PDOInstance->errorInfo());
     }
     return $ret;
   }

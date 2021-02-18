@@ -68,6 +68,52 @@
   padding: 0;
 }
 
+.btndeco {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 2em;
+  padding: 5px;
+}
+
+.indexbtn {
+  height: 40vh;
+  margin: auto;
+  display: flex;
+}
+.indexbtn .btnProject {
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+}
+.indexbtn a {
+  text-decoration: none;
+}
+.indexbtn a h2 {
+  font-family: "Poppins";
+  color: white;
+}
+.indexbtn a .buttonProject {
+  margin: auto;
+  justify-content: center;
+  height: 5em;
+  width: 20em;
+  background-color: #8dabbe;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+.indexbtn a .buttonProject:hover {
+  background-color: #37474F;
+  color: white;
+}
+
+.flex {
+  display: flex;
+}
+.flex h1 {
+  margin: auto;
+}
+
 h1 {
   text-align: center;
 }
@@ -84,26 +130,6 @@ body {
 }
 .menu h1 {
   margin: auto;
-}
-
-.buttonProject {
-  margin: auto;
-  height: 5em;
-  background-color: #8dabbe;
-  border: none;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-}
-.buttonProject:hover {
-  background-color: #37474F;
-  color: white;
-}
-.buttonProject a {
-  text-decoration: none;
-}
-.buttonProject a h2 {
-  font-family: "Poppins";
-  color: white;
 }
 
 .home {

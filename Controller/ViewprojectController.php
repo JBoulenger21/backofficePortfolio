@@ -13,6 +13,8 @@ require_once 'Model/ProjectModel.php';
 
       $_SESSION['projects'] = $data;
 
+
+
       $view = new ViewTemplate('viewprojects');
       $view->generate(array('error'));
 

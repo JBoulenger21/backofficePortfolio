@@ -2,24 +2,7 @@
   <h1>Nouveau Projet</h1>
 </div>
 <?php
-if(isset($_POST['titre'])){
-  var_dump($_POST['titre']);
-}
-if(isset($_POST['descrea'])){
-  var_dump($_POST['descrea']);
-}
-if(isset($_POST['img'])){
-  var_dump($_POST['img']);
-}
-if(isset($_FILES['img'])){
-  var_dump($_FILES['img']);
-}
-if(isset($_POST['contexte'])){
-  var_dump($_POST['contexte']);
-}
-if(isset($_POST['choix'])){
-  var_dump($_POST['choix']);
-}
+
 
  ?>
 <div class="formcontrol">

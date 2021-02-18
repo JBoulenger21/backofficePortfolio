@@ -12,46 +12,35 @@ class SigninController
   {
 
     // Si connexion :
-    if(isset($_POST['email']) && !empty($_POST['email']) &&isset($_POST['password']) && !empty($_POST['password'])){
+    if(isset($_POST['username']) && !empty($_POST['username']) &&isset($_POST['password']) && !empty($_POST['password'])){
       $check = new CheckController();
-      $email = $check->check($_POST['email']);
+      $username = $check->check($_POST['username']);
       $password = $check->check($_POST['password']);
 
       $user = new UserModel();
 
-      $checkmail = $user->emailExist($email); // récupérer tous les emails pour voir si l'email existe
+      $result = $user->signIn($username);
 
-
-      if(count($checkmail) === 0) // compte le nb de fois ou l'email apparait
+      if(password_verify($password, $result["0"]["password"])) // si le mot de passe correspond
       {
-          // l'email n'existe pas en bdd
-          $_SESSION['error'] = 'Aucun compte trouvé.';
+          $_SESSION['user'] = $user->signIn($username);
+
+          header('Location: ?action=index');
       }
-      else { // l'email existe en bdd
+      else {
+          $_SESSION['error'] = 'Mauvais mot de passe.';
 
-          $result = $user->signIn($email);
-
-          if(password_verify($password, $result["0"]["password"])) // si le mot de passe correspond
-          {
-              $_SESSION['user'] = $user->signIn($email);
-
-              header('Location: ?action=index');
-          }
-          else {
-              $_SESSION['error'] = 'Mauvais mot de passe.';
-
-              header('Location: ?action=index');
-          }
+          header('Location: ?action=index');
       }
-
   }
-  else if(isset($_POST['emailin']) && !empty($_POST['emailin']) &&isset($_POST['passwordin']) && !empty($_POST['passwordin'])) {
+  else if(isset($_POST['emailin']) && !empty($_POST['emailin']) && isset($_POST['passwordin']) && !empty($_POST['passwordin']) && isset($_POST['usernamein']) && !empty($_POST['usernamein'])) {
     $check = new CheckController();
+    $username = $check->check($_POST['usernamein']);
     $email = $check->check($_POST['emailin']);
     $password = $check->check($_POST['passwordin']);
     $password = password_hash($password, PASSWORD_DEFAULT);
     $user = new UserModel();
-    $user->newUser($email, $password);
+    $user->newUser($username, $email, $password);
 
     header('Location: ?action=signin');
 

@@ -31,8 +31,16 @@
     <div class="flex">
 
       <h1>Dashboard</h1>
+    </div>
+      <?php if(isset($_SESSION['user'])){
+
+      ?>
+      <div class="btndeco">
+        <a href="?action=disconnect"><button class="btnfooter" type="button" name="button">Se deconnecter</button></a>
+      </div>
 
       <?php
+      }
           if(!empty($_SESSION['error'])){
               echo '  <div class="alert alert-danger w-75 mx-auto" role="alert">
                           ' . $_SESSION['error'] . '
@@ -41,6 +49,7 @@
               $_SESSION['error'] = '';
           }
       ?>
+
     <!-- fin header -->
 
     <?= $content ?>

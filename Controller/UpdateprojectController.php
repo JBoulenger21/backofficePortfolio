@@ -9,7 +9,6 @@ require_once 'Model/ProjectModel.php';
 class UpdateprojectController
 {
   public function updateProject(){
-    var_dump($_POST);
     if(!empty($_POST['id']) && !empty($_POST['uptitre']) && !empty($_POST['updescrea']) && !empty($_POST['upcontexte']) && !empty($_POST['upchoix'])){
 
       $check = new CheckController;

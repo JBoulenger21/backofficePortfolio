@@ -6,8 +6,8 @@
 <div class="formcontrol">
   <form class="signinform" action="?action=signin" method="post">
     <div class="form-floating mb-4">
-      <label for="inputEmail">Email</label>
-      <input id="inputEmail" type="email" name="email" class="form-control" placeholder="name@example.com">
+      <label for="inputUser">Nom d'utilisateur</label>
+      <input id="inputUser" type="text" name="username" class="form-control" placeholder="Username">
     </div>
     <div class="form-floating mb-4">
       <label for="inputPassword">Password</label>
@@ -15,10 +15,15 @@
     </div>
     <button type="submit" class="btn btn-outline-primary">Se connecter</button>
   </form>
-  <!-- <form class="signinform" action="?action=signin" method="post">
+  <!-- <br>
+  <form class="signinform" action="?action=signin" method="post">
     <div class="form-floating mb-4">
       <label for="emailin">EmailIN</label>
       <input id="emailin" type="email" name="emailin" class="form-control" placeholder="name@example.com">
+    </div>
+    <div class="form-floating mb-4">
+      <label for="usernamein">UsernameIN</label>
+      <input id="usernamein" type="text" name="usernamein" class="form-control" placeholder="Username">
     </div>
     <div class="form-floating mb-4">
       <label for="passwordin">PasswordIN</label>

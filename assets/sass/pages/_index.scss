@@ -1,3 +1,46 @@
+.btndeco{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 2em;
+  padding: 5px;
+}
+.indexbtn{
+  height: 40vh;
+  margin: auto;
+  display: flex;
+  .btnProject{
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+  }
+    a{
+      text-decoration: none;
+      h2{
+        font-family: 'Poppins';
+        color: white;
+      }
+      .buttonProject{
+        margin: auto;
+        justify-content: center;
+        height: 5em;
+        width: 20em;
+        background-color: $BackgroundLight;
+        border: none;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+        &:hover{
+          background-color: $BackgroundDark;
+          color: white;
+        }
+    }
+  }
+}
+.flex{
+  display: flex;
+  h1{
+    margin: auto;
+  }
+}
 h1{
   text-align: center;
 }
@@ -11,24 +54,5 @@ body{
   padding: 2em;
   h1{
     margin: auto;
-  }
-}
-.buttonProject{
-  margin: auto;
-  height: 5em;
-  background-color: $BackgroundLight;
-  border: none;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-  &:hover{
-    background-color: $BackgroundDark;
-    color: white;
-  }
-  a{
-    text-decoration: none;
-    h2{
-      font-family: 'Poppins';
-      color: white;
-    }
   }
 }

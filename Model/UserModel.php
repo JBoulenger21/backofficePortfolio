@@ -10,12 +10,12 @@ class userModel
       $request->closeCursor();
     }
 
-    public function signIn($email){
-      $request = SPDO::getInstance()->prepare("SELECT * FROM `user` WHERE `email`=:email");
+    public function signIn($username){
+      $request = SPDO::getInstance()->prepare("SELECT * FROM `user` WHERE `username`=:username");
       $arrayValue = [
-        ':email'=>$email
+        ':username'=>$username
       ];
-      $request->execute($arrayValue);
+      SPDO::getInstance()->execute($request, $arrayValue);
       $data = $request->fetchAll();
       return $data;
     }
@@ -25,18 +25,19 @@ class userModel
       $arrayValue = [
         ':email'=>$email
       ];
-      $request->execute($arrayValue);
+      SPDO::getInstance()->execute($request, $arrayValue);
       $nb_presence = $request->fetchAll();
       return $nb_presence;
     }
 
-    public function newUser($email, $password){
-      $request = SPDO::getInstance()->prepare("INSERT INTO `user` SET `email`=:email, `password`=:password");
+    public function newUser($username, $email, $password){
+      $request = SPDO::getInstance()->prepare("INSERT INTO `user` SET `username`=:username, `email`=:email, `password`=:password");
       $arrayValue = [
+        ':username'=>$username,
         ':email'=>$email,
         ':password'=>$password
       ];
-      $request->execute($arrayValue);
+      SPDO::getInstance()->execute($request, $arrayValue);
       $request->closeCursor();
     }
 
