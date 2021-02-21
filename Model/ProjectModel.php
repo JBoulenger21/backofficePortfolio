@@ -4,12 +4,6 @@ require_once 'Controller/SPDO.php';
 
 class ProjectModel
 {
-  public function isTableExist(){
-    $request = SPDO::getInstance()->prepare("CREATE TABLE IF NOT EXISTS `project` (`id` INT UNSIGNED NOT NULL AUTO_INCREMENT, `titre` VARCHAR(255) NOT NULL, `descrea` VARCHAR(255) NOT NULL, `img` VARCHAR(255), `contexte` VARCHAR(255), `choix` VARCHAR(255), PRIMARY KEY (`id`)) ENGINE = MyISAM;");
-    $request->execute();
-    $request->closeCursor();
-  }
-
   public function newProject($titre, $descrea, $img, $contexte, $choix){
     $request = SPDO::getInstance()->prepare("INSERT INTO `project` SET `titre`=:titre, `descra`=:descrea, `img`=:img, `contexte`=:contexte, `choix`=:choix");
     $arrayValue = [
@@ -55,8 +49,6 @@ class ProjectModel
     }
 
     SPDO::getInstance()->execute($request, $arrayValue);
-    // var_dump($request->execute($arrayValue));
-    // $request->closeCursor();
   }
 
   public function deleteProject($id){

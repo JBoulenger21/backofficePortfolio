@@ -4,12 +4,6 @@ require_once 'Controller/SPDO.php';
 
 class userModel
 {
-    public function isTableExist(){
-      $request = SPDO::getInstance()->prepare("CREATE TABLE IF NOT EXISTS `user` (`id` INT UNSIGNED NOT NULL AUTO_INCREMENT, `email` VARCHAR(255) NOT NULL, `password` VARCHAR(255) NOT NULL, PRIMARY KEY (`id`)) ENGINE = MyISAM;");
-      $request->execute();
-      $request->closeCursor();
-    }
-
     public function signIn($username){
       $request = SPDO::getInstance()->prepare("SELECT * FROM `user` WHERE `username`=:username");
       $arrayValue = [
@@ -42,16 +36,5 @@ class userModel
     }
 
 }
-
-
-
-
-// $arrayValue = [
-// ':nom'=>$nom,
-// ':Description'=>$Description
-// ];
-// $request = App\SPDO::getInstance()->prepare("INSERT INTO `categorie`(`Nom`, `Description`) VALUES (:nom,:Description)");
-// $request->execute($arrayValue);
-// $request->closeCursor();
 
 ?>

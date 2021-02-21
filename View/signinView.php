@@ -17,6 +17,7 @@
   </form>
   <br>
 
+<!-- Formulaire temporaire d'inscription de l'unique utilisateur du BackOffice -->
 
   <!-- <form class="signinform" action="?action=signin" method="post">
     <div class="form-floating mb-4">
