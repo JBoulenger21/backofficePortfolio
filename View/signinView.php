@@ -13,10 +13,12 @@
       <label for="inputPassword">Password</label>
       <input id="inputPassword" type="password" name="password" class="form-control" placeholder="Password">
     </div>
-    <button type="submit" class="btn btn-outline-primary">Se connecter</button>
+    <button type="submit" class="btn btn-outline-primary btnfooter">Se connecter</button>
   </form>
-  <!-- <br>
-  <form class="signinform" action="?action=signin" method="post">
+  <br>
+
+
+  <!-- <form class="signinform" action="?action=signin" method="post">
     <div class="form-floating mb-4">
       <label for="emailin">EmailIN</label>
       <input id="emailin" type="email" name="emailin" class="form-control" placeholder="name@example.com">
@@ -29,6 +31,6 @@
       <label for="passwordin">PasswordIN</label>
       <input id="passwordin" type="password" name="passwordin" class="form-control" placeholder="Password">
     </div>
-    <button type="submit" class="btn btn-outline-primary">S'enregistrer</button>
+    <button type="submit" class="btn btn-outline-primary btnfooter">S'enregistrer</button>
   </form> -->
 </div>

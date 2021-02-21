@@ -1,0 +1,16 @@
+.formcontrol{
+  height: 80vh;
+  width: 80%;
+  justify-content: center;
+  padding-bottom: 2em;
+  margin: auto;
+  label{
+    display: flex;
+    // padding-top: 1em;
+    padding-bottom: 1em;
+  }
+  .form-floating{
+    margin: auto;
+    width: 100vh;
+  }
+}

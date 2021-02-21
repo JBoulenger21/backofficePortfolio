@@ -1,3 +1,19 @@
+.formcontrol {
+  height: 80vh;
+  width: 80%;
+  justify-content: center;
+  padding-bottom: 2em;
+  margin: auto;
+}
+.formcontrol label {
+  display: flex;
+  padding-bottom: 1em;
+}
+.formcontrol .form-floating {
+  margin: auto;
+  width: 100vh;
+}
+
 @font-face {
   font-family: "Mulish", sans-serif;
   src: url("../fonts/Mulish-Bold.ttf");
@@ -139,22 +155,6 @@ body {
   margin: auto;
   padding-top: 1em;
   padding-bottom: 1em;
-}
-
-.formcontrol {
-  display: flex;
-  width: 80%;
-  justify-content: center;
-  padding-bottom: 2em;
-  margin: auto;
-}
-.formcontrol label {
-  display: flex;
-  padding-bottom: 1em;
-}
-.formcontrol .form-floating {
-  margin: auto;
-  width: 100vh;
 }
 
 .pageprojet {

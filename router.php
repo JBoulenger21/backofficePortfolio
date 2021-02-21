@@ -33,7 +33,7 @@ class Router
 
   public function routerRequest()
   {
-    if (isset($_GET['action']) && !empty($_SESSION['user'])) { // si qqch dans url et qqch dans session
+    if (isset($_GET['action']) && !empty($_SESSION['user'])) {
 
       if ($_GET['action'] == 'newproject') {
         $this->newprojectController->newProject();
@@ -53,7 +53,7 @@ class Router
       if ($_GET['action'] == 'disconnect') {
         $this->logoutController->disconnect();
       }
-    } else if (isset($_GET['action'])) // et si y'a qqch dans url et rien dans session
+    } else if (isset($_GET['action']))
     {
 
       if ($_GET['action'] == 'signin') {
@@ -65,7 +65,7 @@ class Router
       if ($_GET['action'] == 'disconnect') {
         $this->indexController->indexview();
       }
-      // ramène à la page home si on essaye de rentrer le nom de la page dans l'url en étant pas connecté
+      // ramène à la page connexion si l'user essaye de rentrer le nom de la page dans l'url sans être connecté
       if ($_GET['action'] == 'newproject') {
         $this->indexController->indexview();
       }
@@ -81,6 +81,6 @@ class Router
     } else // si y'a pas de get action
     {
       $this->indexController->indexview();
-    } 
+    }
   }
 }
